@@ -1,6 +1,8 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+import UserRouter from './router/user.router.js'
+
 
 // this for allow to use .env in BACK END 
 dotenv.config()
@@ -17,8 +19,8 @@ mongoose.connect(process.env.MONGO)
 })
 
 
-
-
+// when make a get requist on /api/user use the routes of UserRouter
+app.use('/api/user', UserRouter)
 
 
 

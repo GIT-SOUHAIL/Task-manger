@@ -1,7 +1,9 @@
 import User from '../models/user.model.js'
 import bcryptjs from 'bcryptjs'
 
-const Signup = async (req , res ) => {
+
+
+const Signup = async (req , res , next) => {
   console.log(req.body)
 
   const { UserName , Email , Password } = req.body
@@ -14,7 +16,8 @@ const Signup = async (req , res ) => {
       await newUser.save()
       res.status(201).json({msg : 'data save successfully' })
   }catch (err) {
-      res.status(500).json(err.message)
+      //res.status(500).json(err.message)
+      next(err)
   }
 
 }

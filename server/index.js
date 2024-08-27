@@ -2,7 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import UserRouter from './router/user.router.js'
-
+import AuthRouter from './router/auth.router.js'
 
 // this for allow to use .env in BACK END 
 dotenv.config()
@@ -18,10 +18,11 @@ mongoose.connect(process.env.MONGO)
     console.log(err)
 })
 
-
+// for to allow to use json
+app.use(express.json())
 // when make a get requist on /api/user use the routes of UserRouter
-app.use('/api/user', UserRouter)
-
+app.use('/api/user' , UserRouter)
+app.use('/api/auth' , AuthRouter)
 
 
 const port = 3000

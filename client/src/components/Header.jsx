@@ -27,6 +27,9 @@ const Header = () => {
           <Link to={'/signin'}>
           <button>SignIn</button>
           </Link> 
+          <Link to={'/signup'}>
+          <button>SignUp</button>
+          </Link> 
         </div>
 
       </section>

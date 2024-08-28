@@ -1,8 +1,9 @@
 import { useRef, useState } from "react"
+import {useNavigate} from 'react-router-dom'
 
 
 const SignUp = () => {
-
+  const navigate = useNavigate()
   const [data , setData] = useState({})
   const [catcherror , setCatcheror] = useState(true)
   const user = useRef()
@@ -28,6 +29,8 @@ const SignUp = () => {
       user.current.value = ""
       email.current.value = ""
       pass.current.value = ""
+      // when all is oke navigate to signin
+      navigate('/signin')
     }catch (err) {
       setCatcheror(true)
       console.log(err)

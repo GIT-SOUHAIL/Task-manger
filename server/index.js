@@ -1,7 +1,6 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-import UserRouter from './router/user.router.js'
 import AuthRouter from './router/auth.router.js'
 import cors from 'cors'
 

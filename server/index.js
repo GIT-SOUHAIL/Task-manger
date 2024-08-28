@@ -26,7 +26,6 @@ app.use(cors({
   }));
 
 //? when make a get requist on /api/.... use the routes of UserRouter
-app.use('/api/user' , UserRouter)
 app.use('/api/auth' , AuthRouter)
 
 

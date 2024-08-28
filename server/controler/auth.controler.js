@@ -15,6 +15,7 @@ const Signup = async (req , res , next) => {
   try{
       await newUser.save()
       res.status(201).json({msg : 'data save successfully' })
+      console.log("successfully")
   }catch (err) {
       //res.status(500).json(err.message)
       next(err)

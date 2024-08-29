@@ -15,7 +15,7 @@ const Signup = async (req , res , next) => {
   
   try{
       await newUser.save()
-      res.status(201).json({msg : true })
+      res.status(201).json({msg : true , data : req.body })
       console.log("successfully signup")
   }catch (err) {
       //res.status(500).json(err.message)
@@ -41,7 +41,7 @@ export const Signin = async (req , res , next) => {
     //? i destructure all information of the user but i ignore the password of user to not send him with cookies
     const {Password :pass , ...restinfo} = validation._doc ;
     //? when user is exist in the data base we send a response by message have a true value  
-    res.cookie('access-token' , token , {httpOnly : true}).status(200).json({msg : true})
+    res.cookie('access_token' , token , {httpOnly : true}).status(200).json({msg : true , data : validation})
     }
     catch(err) {
       next(err)

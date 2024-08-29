@@ -41,9 +41,9 @@ const SignUp = () => {
     if( pass.current.value == "" )  setErrorpass({   'pass' : true }) 
     if(!pass.current.value == "" )  setErrorpass({   'pass' : false }) 
       
-     console.log(erroruser)
-     console.log(erroremail)
-     console.log(errorpass)
+     //console.log(erroruser)
+     //console.log(erroremail)
+     //console.log(errorpass)
 
   }
 

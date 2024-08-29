@@ -5,18 +5,18 @@ import JWT from 'jsonwebtoken'
 
 
 const Signup = async (req , res , next) => {
-  console.log(req.body)
-
+  //console.log(req.body)
   const { UserName , Email , Password } = req.body
-  // this for crypt password for more safety
+  //? this for crypt password for more safety
   const cryptpassword = bcryptjs.hashSync(Password , 10)
   
+  //? save the information from the user and add it in the data base 
   const newUser = new User({ UserName , Email , Password:cryptpassword })
-
+  
   try{
       await newUser.save()
-      res.status(201).json({msg : 'data save successfully' })
-      console.log("successfully")
+      res.status(201).json({msg : true })
+      console.log("successfully signup")
   }catch (err) {
       //res.status(500).json(err.message)
       next(err)
@@ -40,7 +40,7 @@ export const Signin = async (req , res , next) => {
     const token = JWT.sign({UserID : validation._id} , process.env.JWT_TOKEN)
     //? i destructure all information of the user but i ignore the password of user to not send him with cookies
     const {Password :pass , ...restinfo} = validation._doc ;
-    res.cookie('access-token' , token , {httpOnly : true}).status(200).json(restinfo)
+    res.cookie('access-token' , token , {httpOnly : true}).status(200).json({msg : true})
     }
     catch(err) {
       next(err)

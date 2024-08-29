@@ -15,8 +15,8 @@ mongoose.connect(process.env.MONGO)
     console.log("have a conection with mongodb")
 })
 .catch((err)=> {
-    console.log(err)
-})
+    console.log(err) 
+}) 
 
 //? for to allow to use json
 app.use(express.json()) 
